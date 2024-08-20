@@ -1,0 +1,16 @@
+# LogSystem Configuration
+
+# Database connection settings
+database:
+  # The JDBC URL of your MySQL database
+  # Example: jdbc:mysql://localhost:3306/minecraft
+  url: jdbc:mysql://172.17.0.1:3306/s12_logsystem
+
+  # The username for accessing your MySQL database
+  user: u12_AgNW864I65
+
+  # The password for accessing your MySQL database
+  password: 4@Dfx+V!73WF^tWK1bFhA.bc
+
+# Definiere hier die Warzone Welt für das Chest Open Log
+warzone_world: Skyblock-1

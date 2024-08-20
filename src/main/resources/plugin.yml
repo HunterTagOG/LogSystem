@@ -1,0 +1,4 @@
+name: LogSystem
+version: '1.0'
+main: de.huntertagog.locobroko.LogSystem
+api-version: '1.20'

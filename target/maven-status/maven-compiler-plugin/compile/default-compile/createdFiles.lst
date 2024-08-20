@@ -1,0 +1,16 @@
+de\huntertagog\locobroko\listener\EntityDeathListener.class
+de\huntertagog\locobroko\listener\BlockBreakListener.class
+de\huntertagog\locobroko\listener\SeedPlantListener.class
+de\huntertagog\locobroko\LogSystem.class
+de\huntertagog\locobroko\database\Database.class
+de\huntertagog\locobroko\listener\InventoryOpenListener.class
+de\huntertagog\locobroko\listener\PlayerDeathListener$1.class
+de\huntertagog\locobroko\listener\PlayerLogoutListener.class
+de\huntertagog\locobroko\registry\PlayerData.class
+de\huntertagog\locobroko\listener\PlayerJoinListener.class
+de\huntertagog\locobroko\api\LogManagerAPI.class
+de\huntertagog\locobroko\database\AbstractDatabase.class
+de\huntertagog\locobroko\listener\PlayerDeathListener.class
+de\huntertagog\locobroko\listener\CraftItemListener.class
+de\huntertagog\locobroko\manager\LogManager.class
+de\huntertagog\locobroko\listener\BlockPlaceListener.class
