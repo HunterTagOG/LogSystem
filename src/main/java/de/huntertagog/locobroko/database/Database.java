@@ -225,4 +225,21 @@ public class Database extends AbstractDatabase {
 
         return playerLog;
     }
+
+    public String getPlayerName(UUID playerUUID) {
+        String sql = "SELECT player_name FROM users WHERE player_uuid = ?";
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, playerUUID.toString());
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("player_name");
+                }
+            }
+        } catch (SQLException e) {
+            logger.error("An error occurred while fetching player name from the database: {}", e.getMessage());
+        }
+        return null;
+    }
 }
