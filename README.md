@@ -96,34 +96,40 @@ Nach dem Erzeugen der JAR achten Sie darauf, die JAR mit folgendem Kürzel `-sha
 
     @Override
     public void onEnable() {
-        logManagerAPI = (LogManagerAPI) getServer().getPluginManager().getPlugin("LogSystem");
-        if (logManagerAPI != null) {
-            // Verwenden Sie die API
-            UUID playerUUID = ...; // Die UUID des Spielers
+        // Plugin startup logic
+        LogSystem logSystem = (LogSystem) getServer().getPluginManager().getPlugin("LogSystem");
+        if (logSystem != null) {
+            logManagerAPI = logSystem.getLogManagerAPI();
+            if (logManagerAPI != null) {
+                // Verwenden Sie die API
+                UUID playerUUID = UUID.fromString("3fb7af92-171e-49ac-9bb9-fe76ae6b13a4");
 
-            // Abrufen der PlayerData
-            PlayerData playerData = logManagerAPI.getPlayerData(playerUUID);
-            if (playerData != null) {
-                getLogger().info("Player Name: " + playerData.getPlayerName());
-                Map<String, Map<String, Integer>> logs = playerData.getLogs();
-                // Verwende die Logs wie gewünscht
+                // Abrufen der PlayerData
+                PlayerData playerData = logManagerAPI.getPlayerData(playerUUID);
+                if (playerData != null) {
+                    getLogger().info("Player Name: " + playerData.getPlayerName());
+                    Map<String, Map<String, Integer>> logs = playerData.getLogs();
+                    // Verwende die Logs wie gewünscht
+                }
+
+                // Anzahl eines bestimmten Ereignistyps abrufen
+                int eventCount = logManagerAPI.getEventCount(playerUUID, "block_break", "STONE");
+                getLogger().info("Block Break Count (STONE): " + eventCount);
+
+                // Alle Ereignisse eines bestimmten Typs abrufen
+                Map<String, Integer> eventLogs = logManagerAPI.getEventLogs(playerUUID, "block_break");
+                eventLogs.forEach((eventData, count) -> {
+                    getLogger().info(eventData + ": " + count);
+                });
+
+                // Spielername abrufen
+                String playerName = logManagerAPI.getPlayerName(playerUUID);
+                getLogger().info("Player Name: " + playerName);
+            } else {
+                getLogger().severe("LogManagerAPI not found!");
             }
-
-            // Anzahl eines bestimmten Ereignistyps abrufen
-            int eventCount = logManagerAPI.getEventCount(playerUUID, "block_break", "STONE");
-            getLogger().info("Block Break Count (STONE): " + eventCount);
-
-            // Alle Ereignisse eines bestimmten Typs abrufen
-            Map<String, Integer> eventLogs = logManagerAPI.getEventLogs(playerUUID, "block_break");
-            eventLogs.forEach((eventData, count) -> {
-                getLogger().info(eventData + ": " + count);
-            });
-
-            // Spielername abrufen
-            String playerName = logManagerAPI.getPlayerName(playerUUID);
-            getLogger().info("Player Name: " + playerName);
         } else {
-            getLogger().severe("LogManagerAPI not found!");
+            getLogger().severe("LogSystem plugin not found!");
         }
     }
 }
