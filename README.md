@@ -83,14 +83,14 @@ Nach dem Erzeugen der JAR achten Sie darauf, die JAR mit folgendem Kürzel `-sha
 3. Registrieren Sie die LogManagerAPI in Ihrem Plugin:
 
     ```java
-import de.huntertagog.locobroko.api.LogManagerAPI;
-import de.huntertagog.locobroko.registry.PlayerData;
-import org.bukkit.plugin.java.JavaPlugin;
+    import de.huntertagog.locobroko.api.LogManagerAPI;
+    import de.huntertagog.locobroko.registry.PlayerData;
+    import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Map;
-import java.util.UUID;
+    import java.util.Map;
+    import java.util.UUID;
 
-public class MyPlugin extends JavaPlugin {
+    public class MyPlugin extends JavaPlugin {
 
     private static LogManagerAPI logManagerAPI;
 
@@ -127,6 +127,7 @@ public class MyPlugin extends JavaPlugin {
         }
     }
 }
+
     ```
 
 ## Methoden
